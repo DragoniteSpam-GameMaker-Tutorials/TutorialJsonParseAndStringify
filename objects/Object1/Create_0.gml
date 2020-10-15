@@ -1,4 +1,4 @@
-the_struct = {
+/*the_struct = {
     name: "Harry the Pot",
     address: "420 High Street",
     kids: [
@@ -14,11 +14,17 @@ the_struct = {
         },
     ],
 };
-
-
+*/
+/*
 // Load the json from a string 
 var json_string = "{\"name\":\"Harry the Pot\",\"address\":\"420 High Street\",\"kids\":[{\"name\":\"Mary the Pot\",\"address\":\"420 High Street\",\"kids\":[]},{\"name\":\"Jane the Pot\",\"address\":\"420 High Street\",\"kids\":[]}]}";
-the_struct = snap_from_json(json_string);
+the_struct = json_parse(json_string);
+*/
+
+var file = file_text_open_read("pot.json");
+var json_string = file_text_read_string(file);
+file_text_close(file);
+the_struct = json_parse(json_string);
 
 /*
 Trying to de/serialize a struct with a function/method will not work:
